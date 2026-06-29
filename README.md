@@ -1,36 +1,162 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ✦ NexHire OS
 
-## Getting Started
+AI-powered recruitment intelligence dashboard built with **Next.js**.
 
-First, run the development server:
+NexHire OS helps recruiters discover the best candidates using AI semantic search, intelligent ranking, candidate analysis, and explainable hiring insights.
+
+The platform provides a modern recruiter experience to search candidates, understand AI matches, and make faster hiring decisions.
+
+---
+
+# ✨ Features
+
+- AI-powered candidate search dashboard
+- Semantic candidate matching
+- AI ranked candidate results
+- Candidate intelligence profile
+- AI confidence scoring
+- Skill intelligence visualization
+- Explainable AI hiring decisions
+- Generate AI hiring report PDF
+- Dark / Light mode support
+- Modern responsive UI
+
+
+---
+
+# 🧠 Application Flow
+
+Recruiter enters hiring requirement
+
+        ↓
+
+AI Semantic Search
+
+        ↓
+
+Candidate Ranking
+
+        ↓
+
+AI Match Score Generation
+
+        ↓
+
+Candidate Intelligence View
+
+        ↓
+
+Hiring Decision Report
+
+
+
+---
+
+# 🛠 Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- CSS
+- REST API
+- FastAPI Integration
+
+
+---
+
+# 📂 Project Structure
+
+
+nexhire-frontend
+
+│
+├── app
+│
+│ ├── page.tsx
+│ │ └── AI Search Dashboard
+│ │
+│ ├── results
+│ │ └── Ranked Candidate Results
+│ │
+│ ├── candidate
+│ │ └── Candidate Intelligence Page
+│ │
+│ └── globals.css
+│ └── Complete UI Styling
+│
+├── public
+│
+├── package.json
+│
+├── next.config.ts
+│
+└── tsconfig.json
+
+
+
+---
+
+# 🔗 Backend Integration
+
+NexHire frontend communicates with the AI backend powered by FastAPI.
+
+Backend API:
+
+
+https://nexhire-ai-backend.onrender.com
+
+
+
+The frontend sends recruiter requirements and receives AI-ranked candidate results.
+
+
+---
+
+# 🚀 Run Locally
+
+Clone repository:
 
 ```bash
+git clone https://github.com/aastha77/nexhire-frontend.git
+
+Move into project:
+
+cd nexhire-frontend
+
+Install dependencies:
+
+npm install
+
+Start development server:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Application runs at:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+http://localhost:3000
+🌐 Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Frontend deployed using:
 
-## Learn More
+Vercel
 
-To learn more about Next.js, take a look at the following resources:
+Production architecture:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Next.js Frontend
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+        ↓
 
-## Deploy on Vercel
+FastAPI Backend
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+        ↓
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+AI Candidate Matching Engine
+🎯 Use Case
+
+NexHire OS helps recruiters reduce manual screening time by using AI to identify relevant candidates, analyze skills, and provide intelligent hiring recommendations.
+
+🤖 About NexHire OS
+
+NexHire OS is an AI recruitment platform designed to make hiring faster, smarter, and more explainable.
+
+Built with ❤️ using Next.js + FastAPI + AI 🚀
