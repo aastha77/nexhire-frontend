@@ -90,7 +90,7 @@ candidate.master_text
 
 
 
-const analysis=[];
+const analysis:string[] = [];
 
 
 
