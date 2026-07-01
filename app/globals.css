@@ -1455,3 +1455,171 @@ gap:20px;
 
 
 }
+
+
+/* ================= LIGHT MODE ================= */
+
+
+.app.light{
+
+background:#f8fafc;
+
+color:#020617;
+
+}
+
+
+
+/* panels */
+
+.app.light .panel{
+
+background:#ffffff;
+
+color:#020617;
+
+border:1px solid #cbd5e1;
+
+}
+
+
+
+/* textarea */
+
+.app.light textarea{
+
+background:#ffffff;
+
+color:#020617;
+
+border:1px solid #94a3b8;
+
+}
+
+
+
+/* upload box */
+
+.app.light .upload{
+
+background:#ffffff;
+
+color:#020617;
+
+border-color:#38bdf8;
+
+}
+
+
+
+/* AI assistant box */
+
+.app.light .chat{
+
+background:#e2e8f0;
+
+color:#020617;
+
+}
+
+
+
+/* center AI core */
+
+.app.light .engine{
+
+color:#020617;
+
+}
+
+
+
+/* stats */
+
+.app.light .stats{
+
+color:#020617;
+
+}
+
+/* THEME BUTTON LIGHT MODE FIX */
+
+.app.light .theme{
+
+background:#020617;
+
+color:white;
+
+border:1px solid #38bdf8;
+
+}
+
+
+.app.light .theme:hover{
+
+background:#0f172a;
+
+color:white;
+
+}
+
+.resumeStatus{
+
+color:#22ffff;
+
+font-weight:bold;
+
+margin-top:15px;
+
+text-align:center;
+
+}
+
+
+.assistantInput{
+
+width:100%;
+
+padding:12px;
+
+margin-top:15px;
+
+border-radius:15px;
+
+background:rgba(255,255,255,.08);
+
+color:white;
+
+border:1px solid cyan;
+
+}
+
+
+
+.assistantBtn{
+
+margin-top:10px;
+
+padding:12px 25px;
+
+border-radius:15px;
+
+background:#22ffff;
+
+border:none;
+
+cursor:pointer;
+
+font-weight:bold;
+
+}
+
+
+
+.app.light .assistantInput{
+
+color:black;
+
+background:white;
+
+}

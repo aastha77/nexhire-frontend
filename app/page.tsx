@@ -12,6 +12,17 @@ const [job,setJob] = useState("");
 
 const [loading,setLoading] = useState(false);
 
+const [resume,setResume] = useState<File | null>(null);
+
+
+const [message,setMessage] = useState("");
+
+const [assistantReply,setAssistantReply] = useState(
+"I can help you create JD, find skills and explain candidate matches."
+);
+
+
+
 
 
 async function startSearch(){
@@ -80,6 +91,7 @@ console.log(error);
 }
 
 
+
 finally{
 
 setLoading(false);
@@ -94,10 +106,77 @@ setLoading(false);
 
 
 
+function askAssistant(){
+
+
+if(!message.trim()) return;
+
+
+
+const text = message.toLowerCase();
+
+
+
+if(
+text.includes("skill") ||
+text.includes("backend")
+){
+
+
+setAssistantReply(
+
+"Recommended skills: Python, FastAPI, Django, SQL, Cloud, APIs and AI system knowledge."
+
+);
+
+
+}
+
+else if(
+text.includes("candidate")
+){
+
+
+setAssistantReply(
+
+"I can help explain why a candidate matches based on skills, experience and semantic similarity."
+
+);
+
+
+}
+
+else{
+
+
+setAssistantReply(
+
+"Nex AI analyzed your request. Try asking about skills, candidates or hiring recommendations."
+
+);
+
+
+}
+
+
+
+setMessage("");
+
+
+
+}
+
+
+
+
+
+
 return(
 
 
-<main className={dark ? "app dark":"app"}>
+<main className={dark ? "app dark":"app light"}>
+
+
 
 
 
@@ -109,6 +188,8 @@ return(
 ✦ NEXHIRE OS
 
 </div>
+
+
 
 
 
@@ -133,6 +214,8 @@ AI Search
 
 
 
+
+
 <button
 
 className="theme"
@@ -140,6 +223,7 @@ className="theme"
 onClick={()=>setDark(!dark)}
 
 >
+
 
 {
 
@@ -154,7 +238,10 @@ dark ?
 }
 
 
+
 </button>
+
+
 
 
 
@@ -175,7 +262,10 @@ dark ?
 
 
 
+
 <section className="layout">
+
+
 
 
 
@@ -185,19 +275,28 @@ dark ?
 
 
 
+
+
 <h1>
+
 
 🧠
 
 <br/>
 
+
 DESCRIBE YOUR
 
 <br/>
 
+
 IDEAL CANDIDATE
 
+
 </h1>
+
+
+
 
 
 
@@ -206,7 +305,9 @@ IDEAL CANDIDATE
 <textarea
 
 
+
 value={job}
+
 
 
 onChange={(e)=>setJob(e.target.value)}
@@ -233,24 +334,97 @@ Django, AWS and AI experience
 
 
 
-<div className="upload">
+
+
+<label className="upload">
+
+
+
+<input
+
+
+type="file"
+
+
+accept=".pdf,.docx"
+
+
+style={{display:"none"}}
+
+
+onChange={(e)=>{
+
+
+if(e.target.files){
+
+
+setResume(e.target.files[0]);
+
+
+}
+
+
+}}
+
+
+/>
+
 
 
 ⬆
 
 
+
 <p>
 
-Drop Resume Files
 
-<br/>
+{
 
-PDF • DOCX
+
+resume ?
+
+
+`📄 ${resume.name}`
+
+
+:
+
+
+`Drop Resume Files
+
+PDF • DOCX`
+
+
+}
+
+
 
 </p>
 
 
-</div>
+
+</label>
+
+
+
+
+
+
+
+{
+
+resume &&
+
+<p className="resumeStatus">
+
+
+✓ Resume Ready for AI Analysis
+
+
+</p>
+
+
+}
 
 
 
@@ -268,7 +442,9 @@ className="searchBtn"
 onClick={startSearch}
 
 
+
 >
+
 
 
 {
@@ -276,9 +452,12 @@ onClick={startSearch}
 
 loading ?
 
+
 "🤖 AI ANALYZING..."
 
+
 :
+
 
 "✨ INITIATE AI MATCHING"
 
@@ -293,7 +472,15 @@ loading ?
 
 
 
+
+
 </div>
+
+
+
+
+
+
 
 
 
@@ -307,32 +494,49 @@ loading ?
 
 
 
+
+
 <div className="circle">
+
 
 ◉
 
+
 </div>
+
+
 
 
 
 <div className="core">
 
 
+
 <h2>
 
+
 NEX AI CORE
+
 
 </h2>
 
 
+
+
 <p>
 
+
 SEMANTIC ENGINE ONLINE
+
 
 </p>
 
 
+
 </div>
+
+
+
 
 
 
@@ -359,6 +563,9 @@ SEMANTIC ENGINE ONLINE
 
 
 
+
+
+
 <div className="network">
 
 
@@ -369,7 +576,13 @@ SEMANTIC ENGINE ONLINE
 
 
 
+
+
 </div>
+
+
+
+
 
 
 
@@ -382,19 +595,32 @@ SEMANTIC ENGINE ONLINE
 <div className="panel ai">
 
 
+
+
+
 <h2>
 
+
 🤖 Nex AI Assistant
+
 
 </h2>
 
 
 
+
+
 <p>
+
 
 Your AI hiring copilot
 
+
 </p>
+
+
+
+
 
 
 
@@ -403,14 +629,63 @@ Your AI hiring copilot
 <div className="chat">
 
 
-"I can help you create JD,
+{assistantReply}
 
-find skills and explain
-
-candidate matches."
 
 
 </div>
+
+
+
+
+
+
+
+
+
+<input
+
+
+className="assistantInput"
+
+
+placeholder="Ask Nex AI..."
+
+
+value={message}
+
+
+onChange={(e)=>setMessage(e.target.value)}
+
+
+
+/>
+
+
+
+
+
+
+
+<button
+
+
+className="assistantBtn"
+
+
+onClick={askAssistant}
+
+
+>
+
+
+Ask AI
+
+
+</button>
+
+
+
 
 
 
@@ -424,7 +699,12 @@ STATUS: READY
 </div>
 
 
+
+
+
+
 </div>
+
 
 
 
@@ -439,10 +719,17 @@ STATUS: READY
 
 
 
+
+
+
 <section className="stats">
 
 
+
+
+
 <div>
+
 
 <h2>
 
@@ -462,7 +749,12 @@ Candidates Indexed
 
 
 
+
+
+
+
 <div>
+
 
 <h2>
 
@@ -483,7 +775,11 @@ Match Accuracy
 
 
 
+
+
+
 <div>
+
 
 <h2>
 
@@ -503,7 +799,13 @@ Ranking Speed
 
 
 
+
+
+
+
 </section>
+
+
 
 
 
@@ -513,5 +815,6 @@ Ranking Speed
 
 
 )
+
 
 }
